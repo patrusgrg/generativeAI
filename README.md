@@ -12,7 +12,19 @@ generativeAI/
 ├── requirements.txt     # Python dependencies
 ├── .gitignore           # Ignored files and folders
 └── README.md            # Project documentation
-```
+
+
+##Areas for Improvement 
+1.Dynamic Document loading
+-Righ now doucments are hardcoded and also in data.tx 
+-Could load from multiple  files or automatically split paragraphs  for large documents
+2. Interactive User Experience
+-currently, only a single question is asked 
+- Could add an inter active loop or CLi Input for multiple questions
+
+##Future project :
+1. I really wanna make gen AI APP using langgraph and langchain 
+more like all the architecture based. first i will make prototype and i will make an app.
 
 ## Features
 
