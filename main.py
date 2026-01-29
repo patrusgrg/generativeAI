@@ -27,15 +27,30 @@ index = None
 
 def initialize_faiss():
     global embeddings, index
-    embeddings = np.array([get_embedding(doc) for doc in documents], dtype=np.float32)  # <- convert to float32
+    # Create embeddings list
+    embeddings_list = [get_embedding(doc) for doc in documents]
+
+    # Convert to 2D numpy array of type float32
+    embeddings = np.vstack(embeddings_list).astype('float32')
+
+    # Create FAISS index
     dimension = embeddings.shape[1]
     index = faiss.IndexFlatL2(dimension)
     index.add(embeddings)
 
+
 # 5️ Retrieve top-k relevant documents
 def retrieve(query, k=2):
-    query_emb = get_embedding(query).reshape(1, -1)
+    # Get embedding
+    query_emb = get_embedding(query)
+    
+    # Ensure it's 2D and float32
+    query_emb = np.array(query_emb, dtype='float32').reshape(1, -1)
+
+    # Search FAISS index
     distances, indices = index.search(query_emb, k)
+
+    # Return top-k documents
     return [documents[i] for i in indices[0]]
 
 # 6️ Ask LLM using retrieved context

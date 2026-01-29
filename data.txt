@@ -1,0 +1,7 @@
+RAG improves LLM accuracy by retrieving relevant documents.
+Large Language Models are trained on massive text datasets.
+Transformers use self-attention mechanisms.
+Python is a popular programming language.
+LangChain is a Python library for building LLM applications.
+FAISS is a library for fast similarity search on vectors.
+OpenAI provides APIs for embeddings and chat-based LLMs.
